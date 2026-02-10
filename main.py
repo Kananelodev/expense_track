@@ -1,15 +1,20 @@
+import json
+import os
+
 class Expense:
-    def __init__(self, amount, category, description):
-        self.amount = amount
-        self.category = category
-        self.description = description
-
-
-
-    def add_expense(self):
-        add = {
-             
+    def __init__(self):
+        pass
+    
+    def add_expense(self, amo, cat, desc):
+        
+        next_id = max(self.storing.keys()) + 1 if self.storing else 1
+        self.storing[next_id] = {
+        'amount': amo,
+        'category': cat,
+        'description': desc
         }
+        return self.storing
+
 
         
 
@@ -19,20 +24,18 @@ class Expense:
 
     def store(self):
         #I have to store and preferrably display the expenses
-
-
-        store = {}
+        well = self.add_expense(self.amount, self.category, self.description)
+    
         data = ["Expense"]
         
-        for categ, count in enumerate(data, start=1):
-                
-                store[categ] = {
-                    'amount': self.amount,
-                    'category': self.category,
-                    'description': self.description,
-                }
-        print(store)
-        return store
+        for categ, count in enumerate(data, start=1): 
+            self.storing[categ] = {
+                'amount': self.amount,
+                'category': self.category,
+                'description': self.description,
+            }
+
+        return self.storing
     
     
              
