@@ -35,7 +35,7 @@ class Expense:
                 'description': self.description,
             }
 
-        return self.storing
+        return self.storing # Have to have an original dictioanry
     
     
              
@@ -43,8 +43,8 @@ class Expense:
 
 
 
-ok = Expense(50, "Food", "More food to buy")
-wow = ok.store()
+ok = Expense()
+wow = ok.store(50, "Food", "More food to buy")
 print(wow)
 
 
